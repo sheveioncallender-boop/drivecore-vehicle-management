@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_move_form_drivecore_vehicle" model="ir.ui.view">
+        <field name="name">account.move.form.drivecore.vehicle</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook" position="before">
+                <group string="DriveCore Vehicle" col="4" invisible="move_type not in ('out_invoice', 'out_refund', 'out_receipt')">
+                    <group>
+                        <field name="drivecore_vehicle_id" domain="[('partner_id', '=', partner_id), ('company_id', '=', company_id)]"/>
+                        <field name="drivecore_number_plate"/>
+                        <field name="drivecore_vin"/>
+                        <field name="drivecore_odometer"/>
+                        <field name="drivecore_odometer_unit"/>
+                        <field name="drivecore_odometer_note" placeholder="Required when entering a lower reading..."/>
+                    </group>
+                    <group>
+                        <field name="drivecore_vehicle_year"/>
+                        <field name="drivecore_vehicle_make"/>
+                        <field name="drivecore_vehicle_model"/>
+                        <field name="drivecore_service_type_id"/>
+                        <field name="drivecore_service_visit_id" readonly="1" invisible="not drivecore_service_visit_id"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

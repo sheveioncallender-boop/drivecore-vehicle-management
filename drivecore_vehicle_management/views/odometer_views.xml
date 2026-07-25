@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_drivecore_odometer_search" model="ir.ui.view">
+        <field name="name">drivecore.odometer.search</field><field name="model">drivecore.vehicle.odometer</field>
+        <field name="arch" type="xml"><search><field name="vehicle_id"/><field name="partner_id"/><field name="source"/><filter name="group_vehicle" string="Vehicle" context="{'group_by':'vehicle_id'}"/><filter name="group_source" string="Source" context="{'group_by':'source'}"/></search></field>
+    </record>
+    <record id="view_drivecore_odometer_list" model="ir.ui.view">
+        <field name="name">drivecore.odometer.list</field><field name="model">drivecore.vehicle.odometer</field>
+        <field name="arch" type="xml"><list><field name="reading_date"/><field name="vehicle_id"/><field name="partner_id"/><field name="reading"/><field name="unit"/><field name="source"/><field name="user_id"/></list></field>
+    </record>
+    <record id="view_drivecore_odometer_form" model="ir.ui.view">
+        <field name="name">drivecore.odometer.form</field><field name="model">drivecore.vehicle.odometer</field>
+        <field name="arch" type="xml"><form><sheet><group><group><field name="vehicle_id"/><field name="partner_id" readonly="1"/><field name="reading"/><field name="unit" readonly="1"/></group><group><field name="reading_date"/><field name="source"/><field name="user_id"/><field name="company_id" groups="base.group_multi_company"/></group></group><group string="Audit"><field name="lower_reading_reason" placeholder="Required only when correcting to a lower reading..."/><field name="notes"/></group><group string="Source Documents"><field name="pos_order_id"/><field name="sale_order_id"/><field name="invoice_id"/><field name="service_visit_id"/></group></sheet><chatter/></form></field>
+    </record>
+    <record id="action_drivecore_odometer" model="ir.actions.act_window"><field name="name">Odometer History</field><field name="res_model">drivecore.vehicle.odometer</field><field name="view_mode">list,form</field><field name="search_view_id" ref="view_drivecore_odometer_search"/></record>
+</odoo>

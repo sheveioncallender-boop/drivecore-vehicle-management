@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_drivecore_vehicle" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='informations']" position="after">
+            <div t-if="o.drivecore_number_plate" class="row mt-3 mb-3" style="border:1px solid #d9dee5;border-left:4px solid #84d826;padding:12px 14px;border-radius:6px;">
+                <div class="col-12"><strong style="font-size:16px;">Vehicle Details</strong></div>
+                <div class="col-4"><strong>Vehicle:</strong><br/><span t-esc="'%s %s %s' % (o.drivecore_vehicle_year or '', o.drivecore_vehicle_make or '', o.drivecore_vehicle_model or '')"/></div>
+                <div class="col-4"><strong>Number Plate:</strong><br/><span t-field="o.drivecore_number_plate"/></div>
+                <div class="col-4" t-if="o.drivecore_vin"><strong>VIN:</strong><br/><span t-field="o.drivecore_vin"/></div>
+                <div class="col-4" t-if="o.drivecore_odometer"><strong>Odometer:</strong><br/><span t-esc="o.drivecore_odometer"/> <span t-esc="o.drivecore_odometer_unit"/></div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
