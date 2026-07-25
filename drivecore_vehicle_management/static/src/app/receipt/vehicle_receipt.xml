@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="drivecore_vehicle_management.OrderReceiptVehicle" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'before-footer')]" position="before">
+            <div t-if="order.drivecore_number_plate" class="dc-receipt-vehicle mt-3 pt-2">
+                <div class="fw-bolder text-center mb-1">VEHICLE DETAILS</div>
+                <div><strong>Customer:</strong> <t t-esc="order.drivecore_customer_name || order.getPartnerName()"/></div>
+                <div t-if="order.drivecore_customer_phone"><strong>Phone:</strong> <t t-esc="order.drivecore_customer_phone"/></div>
+                <div><strong>Vehicle:</strong> <t t-esc="[order.drivecore_vehicle_year, order.drivecore_vehicle_make, order.drivecore_vehicle_model].filter(Boolean).join(' ')"/></div>
+                <div><strong>Number Plate:</strong> <t t-esc="order.drivecore_number_plate"/></div>
+                <div t-if="order.drivecore_vin"><strong>VIN:</strong> <t t-esc="order.drivecore_vin"/></div>
+                <div><strong>Odometer:</strong> <t t-esc="order.drivecore_odometer"/> <t t-esc="order.drivecore_odometer_unit"/></div>
+            </div>
+        </xpath>
+    </t>
+</templates>
