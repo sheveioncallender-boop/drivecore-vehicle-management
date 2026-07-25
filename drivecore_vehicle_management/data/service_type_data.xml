@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="service_type_wheel_alignment" model="drivecore.service.type">
+        <field name="name">Wheel Alignment</field><field name="code">ALIGN</field><field name="sequence">10</field>
+    </record>
+    <record id="service_type_inspection" model="drivecore.service.type">
+        <field name="name">Inspection</field><field name="code">INSP</field><field name="sequence">20</field>
+    </record>
+    <record id="service_type_diagnostics" model="drivecore.service.type">
+        <field name="name">Diagnostics</field><field name="code">DIAG</field><field name="sequence">30</field>
+    </record>
+    <record id="service_type_system_check" model="drivecore.service.type">
+        <field name="name">System Check</field><field name="code">CHECK</field><field name="sequence">40</field>
+    </record>
+    <record id="service_type_wheels_tires" model="drivecore.service.type">
+        <field name="name">Wheels &amp; Tires</field><field name="code">TYRES</field><field name="sequence">50</field>
+    </record>
+    <record id="service_type_wash_details" model="drivecore.service.type">
+        <field name="name">Wash &amp; Details</field><field name="code">DETAIL</field><field name="sequence">60</field>
+    </record>
+</odoo>

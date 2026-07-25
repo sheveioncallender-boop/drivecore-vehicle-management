@@ -1,0 +1,28 @@
+.dc-vehicle-button {
+    border: 2px solid rgba(132, 216, 38, .65) !important;
+    font-weight: 700;
+    white-space: normal;
+}
+.dc-vehicle-dialog .modal-content {
+    border-top: 5px solid #84d826;
+}
+.dc-pos-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+.dc-pos-section-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1479ff;
+    border-bottom: 1px solid var(--border-color, #d9dee5);
+    padding-bottom: .45rem;
+    margin-bottom: .75rem;
+}
+.dc-receipt-vehicle {
+    border-top: 1px dashed #000;
+    border-bottom: 1px dashed #000;
+    padding-bottom: .5rem;
+    text-align: left;
+    font-size: 82%;
+}

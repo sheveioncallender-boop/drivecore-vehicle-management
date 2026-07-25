@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="drivecore_vehicle_management.VehicleDetailsPopup">
+        <Dialog title="props.title || 'Customer &amp; Vehicle Details'" size="'xl'" contentClass="'dc-vehicle-dialog'">
+            <div class="dc-pos-form">
+                <div t-if="state.error" class="alert alert-danger py-2 mb-3"><i class="fa fa-exclamation-triangle me-2"/><t t-esc="state.error"/></div>
+                <div class="dc-pos-section-title"><i class="fa fa-user me-2"/>Customer</div>
+                <div class="row g-2 mb-3">
+                    <div class="col-12 col-md-4"><label>Customer Name</label><input class="form-control" t-model="state.customer_name" placeholder="Full name"/></div>
+                    <div class="col-12 col-md-4"><label>Phone Number</label><input class="form-control" t-model="state.customer_phone" placeholder="1 868 000 0000"/></div>
+                    <div class="col-12 col-md-4"><label>Address</label><input class="form-control" t-model="state.customer_address" placeholder="Customer address"/></div>
+                </div>
+                <div class="dc-pos-section-title"><i class="fa fa-car me-2"/>Vehicle</div>
+                <div class="row g-2">
+                    <div class="col-12"><label>Existing Vehicle</label><select class="form-select" t-on-change="onVehicleChange"><option value="0">Create a new vehicle / enter details manually</option><option t-foreach="customerVehicles" t-as="vehicle" t-key="vehicle.id" t-att-value="vehicle.id" t-att-selected="vehicle.id === state.vehicle_id"><t t-esc="vehicle.display_name"/></option></select></div>
+                    <div class="col-6 col-md-2"><label>Year</label><input type="number" class="form-control" t-model="state.vehicle_year"/></div>
+                    <div class="col-6 col-md-3"><label>Make</label><input class="form-control" t-model="state.vehicle_make" placeholder="Toyota"/></div>
+                    <div class="col-6 col-md-3"><label>Model</label><input class="form-control" t-model="state.vehicle_model" placeholder="Corolla"/></div>
+                    <div class="col-6 col-md-4"><label>Number Plate</label><input class="form-control text-uppercase" t-model="state.number_plate" placeholder="PXX 1234"/></div>
+                    <div class="col-12 col-md-5"><label>VIN</label><input class="form-control text-uppercase" t-model="state.vin" placeholder="Vehicle identification number"/></div>
+                    <div class="col-8 col-md-4"><label>Odometer Reading</label><input type="number" min="0" class="form-control" t-model="state.odometer"/></div>
+                    <div class="col-4 col-md-3"><label>Unit</label><select class="form-select" t-model="state.odometer_unit"><option value="km">Kilometres</option><option value="mi">Miles</option></select></div>
+                    <div class="col-12"><label>Odometer Correction Reason <span class="text-muted">(only when lower than the previous reading)</span></label><input class="form-control" t-model="state.odometer_note" placeholder="Instrument cluster replaced, previous entry corrected, etc."/></div>
+                </div>
+            </div>
+            <t t-set-slot="footer"><button class="btn btn-primary btn-lg" t-on-click="confirm"><i class="fa fa-check me-2"/>Save Vehicle Details</button><button class="btn btn-secondary btn-lg" t-on-click="cancel">Cancel</button></t>
+        </Dialog>
+    </t>
+</templates>
