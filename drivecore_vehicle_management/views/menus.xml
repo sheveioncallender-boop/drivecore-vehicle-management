@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_drivecore_root" name="DriveCore Vehicles" sequence="35" web_icon="drivecore_vehicle_management,static/description/icon.png" groups="drivecore_vehicle_management.group_drivecore_vehicle_user,point_of_sale.group_pos_user"/>
+    <menuitem id="menu_drivecore_operations" name="Operations" parent="menu_drivecore_root" sequence="10"/>
+    <menuitem id="menu_drivecore_vehicles" name="Vehicles" parent="menu_drivecore_operations" action="action_drivecore_vehicle" sequence="10"/>
+    <menuitem id="menu_drivecore_service_visits" name="Service Visits" parent="menu_drivecore_operations" action="action_drivecore_service_visit" sequence="20"/>
+    <menuitem id="menu_drivecore_odometer" name="Odometer History" parent="menu_drivecore_operations" action="action_drivecore_odometer" sequence="30"/>
+    <menuitem id="menu_drivecore_configuration" name="Configuration" parent="menu_drivecore_root" sequence="90" groups="drivecore_vehicle_management.group_drivecore_vehicle_manager,point_of_sale.group_pos_manager"/>
+    <menuitem id="menu_drivecore_service_types" name="Service Types" parent="menu_drivecore_configuration" action="action_drivecore_service_type" sequence="10"/>
+    <menuitem id="menu_drivecore_vehicle_makes" name="Vehicle Makes" parent="menu_drivecore_configuration" action="action_drivecore_vehicle_make" sequence="20"/>
+    <menuitem id="menu_drivecore_vehicle_models" name="Vehicle Models" parent="menu_drivecore_configuration" action="action_drivecore_vehicle_model" sequence="30"/>
+    <menuitem id="menu_drivecore_pos_settings" name="POS Vehicle Settings" parent="menu_drivecore_configuration" action="action_drivecore_pos_config" sequence="40"/>
+</odoo>

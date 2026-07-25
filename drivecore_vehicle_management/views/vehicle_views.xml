@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_drivecore_vehicle_search" model="ir.ui.view">
+        <field name="name">drivecore.vehicle.search</field><field name="model">drivecore.vehicle</field>
+        <field name="arch" type="xml"><search>
+            <field name="license_plate"/><field name="vin"/><field name="partner_id"/><field name="make_id"/><field name="model_id"/>
+            <filter name="active" string="Active" domain="[('active','=',True)]"/>
+            <separator/><filter name="group_owner" string="Owner" context="{'group_by':'partner_id'}"/>
+            <filter name="group_make" string="Make" context="{'group_by':'make_id'}"/>
+        </search></field>
+    </record>
+    <record id="view_drivecore_vehicle_list" model="ir.ui.view">
+        <field name="name">drivecore.vehicle.list</field><field name="model">drivecore.vehicle</field>
+        <field name="arch" type="xml"><list decoration-muted="not active">
+            <field name="license_plate"/><field name="year"/><field name="make_id"/><field name="model_id"/><field name="partner_id"/>
+            <field name="vin" optional="hide"/><field name="current_odometer"/><field name="odometer_unit"/><field name="active" optional="hide"/>
+        </list></field>
+    </record>
+    <record id="view_drivecore_vehicle_form" model="ir.ui.view">
+        <field name="name">drivecore.vehicle.form</field><field name="model">drivecore.vehicle</field>
+        <field name="arch" type="xml"><form string="Vehicle">
+            <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_service_visits" type="object" class="oe_stat_button" icon="fa-wrench"><field name="service_visit_count" widget="statinfo" string="Service Visits"/></button>
+                    <button name="action_view_odometer" type="object" class="oe_stat_button" icon="fa-tachometer"><field name="odometer_count" widget="statinfo" string="Odometer"/></button>
+                    <button name="action_view_sale_orders" type="object" class="oe_stat_button" icon="fa-shopping-cart"><field name="sale_order_count" widget="statinfo" string="Sales"/></button>
+                    <button name="action_view_invoices" type="object" class="oe_stat_button" icon="fa-file-text-o"><field name="invoice_count" widget="statinfo" string="Invoices"/></button>
+                    <button name="action_view_pos_orders" type="object" class="oe_stat_button" icon="fa-credit-card"><field name="pos_order_count" widget="statinfo" string="POS Orders"/></button>
+                </div>
+                <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                <div class="oe_title"><label for="license_plate"/><h1><field name="license_plate" placeholder="PXX 1234"/></h1><h2><field name="name" readonly="1" nolabel="1"/></h2></div>
+                <group>
+                    <group string="Owner &amp; Identity"><field name="partner_id"/><field name="vin"/><field name="company_id" groups="base.group_multi_company"/><field name="active"/></group>
+                    <group string="Vehicle"><field name="year"/><field name="make_id"/><field name="model_id"/><field name="color"/></group>
+                    <group string="Current Odometer"><field name="current_odometer"/><field name="odometer_unit"/><field name="current_odometer_date"/></group>
+                </group>
+                <notebook>
+                    <page string="Odometer History"><field name="odometer_ids" readonly="1"><list><field name="reading_date"/><field name="reading"/><field name="unit"/><field name="source"/><field name="user_id"/></list></field></page>
+                    <page string="Service History"><field name="service_visit_ids" readonly="1"><list><field name="name"/><field name="visit_date"/><field name="state"/><field name="service_type_ids" widget="many2many_tags"/><field name="odometer"/></list></field></page>
+                    <page string="Registration"><field name="registration_notes" placeholder="Registration, inspection or insurance notes..."/></page>
+                    <page string="Internal Notes"><field name="notes"/></page>
+                </notebook>
+            </sheet><chatter/>
+        </form></field>
+    </record>
+    <record id="action_drivecore_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehicles</field><field name="res_model">drivecore.vehicle</field><field name="view_mode">list,form</field><field name="search_view_id" ref="view_drivecore_vehicle_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html"><p class="o_view_nocontent_smiling_face">Create the first customer vehicle</p><p>Track ownership, VIN, number plate, odometer and complete service history.</p></field>
+    </record>
+</odoo>
