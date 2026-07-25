@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_drivecore_vehicle_make_list" model="ir.ui.view">
+        <field name="name">drivecore.vehicle.make.list</field><field name="model">drivecore.vehicle.make</field>
+        <field name="arch" type="xml"><list editable="bottom"><field name="name"/><field name="active" optional="hide"/></list></field>
+    </record>
+    <record id="view_drivecore_vehicle_make_form" model="ir.ui.view">
+        <field name="name">drivecore.vehicle.make.form</field><field name="model">drivecore.vehicle.make</field>
+        <field name="arch" type="xml"><form><sheet><group><field name="name"/><field name="active"/></group><field name="model_ids"><list editable="bottom"><field name="name"/><field name="active" optional="hide"/></list></field></sheet></form></field>
+    </record>
+    <record id="action_drivecore_vehicle_make" model="ir.actions.act_window">
+        <field name="name">Vehicle Makes</field><field name="res_model">drivecore.vehicle.make</field><field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="drivecore_vehicle_management.PaymentScreenButtons" t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'payment-buttons')]" position="inside">
+            <button class="button btn btn-lg w-100 lh-lg dc-vehicle-button" t-att-class="currentOrder.drivecoreVehicleSummary() ? 'btn-success' : (currentOrder.drivecoreRequiresVehicle() ? 'btn-primary' : 'btn-secondary')" t-on-click="openDriveCoreVehicleDetails">
+                <span><i class="fa fa-car me-2"/><t t-if="currentOrder.drivecoreVehicleSummary()" t-esc="currentOrder.drivecoreVehicleSummary()"/><t t-else="">Customer &amp; Vehicle Details</t></span>
+                <i t-if="currentOrder.drivecoreVehicleSummary()" class="fa fa-check-circle ms-2"/>
+            </button>
+        </xpath>
+    </t>
+</templates>
