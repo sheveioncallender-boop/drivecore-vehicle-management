@@ -36,6 +36,7 @@ class DriveCoreVehicle(models.Model):
     license_plate = fields.Char(string="Number Plate", required=True, tracking=True, index=True)
     plate_normalized = fields.Char(compute="_compute_identifiers", store=True, index=True)
     vin = fields.Char(string="VIN", tracking=True, index=True)
+    engine_number = fields.Char(string="Engine Number", tracking=True, index=True)
     vin_normalized = fields.Char(compute="_compute_identifiers", store=True, index=True)
     color = fields.Char()
     registration_notes = fields.Text()
