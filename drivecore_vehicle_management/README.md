@@ -5,7 +5,7 @@ A custom Odoo 19 application for DriveCore Auto Import & Solutions Limited. It k
 ## Included features
 
 - Multiple vehicles per customer
-- Vehicle year, make, model, number plate, VIN and colour
+- Vehicle year, make, model, number plate, VIN, engine number and colour
 - Searchable vehicle profiles and customer smart buttons
 - Dated odometer history per vehicle
 - Lower-reading correction reason and audit trail
@@ -42,6 +42,15 @@ A custom Odoo 19 application for DriveCore Auto Import & Solutions Limited. It k
 4. Choose the vehicle-information policy for each POS configuration.
 5. Open each relevant product and use the **DriveCore Service** tab to select a service type and enable **Require Vehicle at POS**.
 6. Close and reopen any running POS session after installing or upgrading the module so the new models and frontend assets load.
+
+## Engine number — version 19.0.1.0.7
+
+After deploying this update, upgrade **DriveCore Vehicle Management & POS** from Apps.
+Open a vehicle and enter **Engine Number** directly below **VIN** in **Owner & Identity**.
+The optional text field preserves letters, leading zeros and punctuation; changes are recorded in chatter.
+Existing vehicles can leave it blank. Search by Engine Number from the vehicle search bar,
+or enable the optional Engine Number column in the vehicle list.
+This update adds the field to vehicle profiles only; POS checkout and printed documents are unchanged.
 
 ## Recommended POS policy
 

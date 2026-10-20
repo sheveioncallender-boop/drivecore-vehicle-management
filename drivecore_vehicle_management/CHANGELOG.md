@@ -1,5 +1,10 @@
 # Changelog
 
+## 19.0.1.0.7
+- Added an optional, tracked Engine Number text field to vehicle profiles, directly below VIN.
+- Added Engine Number to vehicle search and as an optional list column.
+- Existing vehicles remain valid with no engine number; no changes to POS or sales/accounting workflows.
+
 ## 19.0.1.0.6
 - Fixed the OWL receipt-screen crash after validating a POS order.
 - Moved vehicle receipt formatting into a receipt component getter.
